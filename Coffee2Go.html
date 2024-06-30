@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee2Go</title>
+    <link rel="icon" type="image/png" href="Logo 2.png">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- custom font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&ampdisplay=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background-image: url(bg2.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        h1 {
+            font-weight: 1000;
+            color: #A59F6D; 
+        }
+        p {
+            text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+            color: #fffefe;
+            font-size: 24px;
+            text-align: justify;
+           margin: 10px;
+        }
+        .parallax {
+            height: 450px;
+        }
+        h3 {
+            color: #7a7642;
+            font-size: 60px;
+            font-weight: bold;
+            text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+            
+        }
+        .button {
+  position: relative;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #34974d;
+  background-color: #3aa856;
+}
+
+.button, .button__icon, .button__text {
+  transition: all 0.3s;
+}
+
+.button .button__text {
+  transform: translateX(30px);
+  color: #fff;
+  font-weight: 600;
+}
+
+.button .button__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: #34974d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button .svg {
+  width: 30px;
+  stroke: #fff;
+}
+
+.button:hover {
+  background: #34974d;
+}
+
+.button:hover .button__text {
+  color: transparent;
+}
+
+.button:hover .button__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+.button:active .button__icon {
+  background-color: #2e8644;
+}
+
+.button:active {
+  border: 1px solid #2e8644;
+}
+h5 {
+    text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+}
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.image-wrapper {
+    text-align: center;
+    width: 200px;
+    margin: 0 10px; 
+}
+
+.image-wrapper h3 {
+    margin: 0 0 10px;
+    font-weight: bold;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav class="brown darken-2" style="height: 70px;">
+            <div class="nav-wrapper">
+                
+                    <a href="home.html" class="brand-logo" style="margin: 5px;">
+                        <img src="Logo 2.png" alt="" class="responsive-img circle" width="55" height="55">
+                    </a>
+                    <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+                        <i class="material-icons">menu</i>
+                    </a>
+                   
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="Coffee2Go.html">Home</a></li>
+                        <li><a href="https://www.google.com/search?q=coffee&sca_esv=837579d7492c079f&biw=1163&bih=539&tbm=shop&sxsrf=ADLYWIL71TJPMouPWvHNJNdpMtthFgGZGg%3A1719775329592&ei=YbCBZr_DI8vT1e8Pq5qg-A4&ved=0ahUKEwj_9_OshoSHAxXLafUHHSsNCO8Q4dUDCAg&uact=5&oq=coffee&gs_lp=Egtwcm9kdWN0cy1jYyIGY29mZmVlMgQQIxgnMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAESMUEUHZYdnAAeACQAQCYAX6gAfYBqgEDMC4yuAEDyAEA-AEBmAIBoAJ-mAMAiAYBkgcDMC4xoAfbCw&sclient=products-cc" target="_blank">Coffees</a></li>
+                        <li><a href="https://www.google.com/search?q=pastries&sca_esv=837579d7492c079f&biw=1163&bih=539&tbm=shop&sxsrf=ADLYWIJNWWvGvPlf2L9aOpTDWl8v2yU1jw%3A1719775238813&ei=BrCBZtyBMbnX1e8PodyviAQ&ved=0ahUKEwjcnM-BhoSHAxW5a_UHHSHuC0EQ4dUDCAg&uact=5&oq=pastries&gs_lp=Egtwcm9kdWN0cy1jYyIIcGFzdHJpZXMyBBAjGCcyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgARI-xBQrg1Yrg1wAHgAkAEAmAGAAaAB9QGqAQMwLjK4AQPIAQD4AQGYAgKgAv0BmAMAiAYBkgcDMC4yoAe9Bw&sclient=products-cc" target="_blank">Pastries</a></li>
+                        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">More<i class="material-icons right">arrow_drop_down</i></a></li>
+                    </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="history.html" class="black-text">History</a></li>
+        <li><a href="about.html" class="black-text">About Us</a></li>
+        <li><a href="https://www.facebook.com/coffee2go.2024?mibextid=ZbWKwL" class="black-text" target="_blank">Message Us</a></li>
+    </ul>
+
+        <br>
+        <h1 class="center">Coffee2Go</h1>
+
+        <div class="divider"></div>
+        <div class="row">
+            <div class="col s12 m8 offset-m2 l6 offset-l3">
+                <div class="card-panel brown lighten-3 z-depth-1">
+                    <div class="row align-wrapper">
+                        <div class="col s2">
+                            <img src="Logo 1.png" alt="" class="responsive-img circle">
+                        </div>
+                        <div class="col s10">
+                            <span class="black-text">
+                                Welcome to our cozy coffee shop, a haven for coffee enthusiasts and casual sippers alike. Nestled in the heart of the city, our shop offers a warm and inviting atmosphere perfect for catching up with friends, working remotely, or simply enjoying a moment of solitude. We pride ourselves on serving freshly brewed coffee made from the finest beans sourced from around the world. Whether you prefer a rich espresso, a creamy latte, or an extra-flavored coffee, our skilled baristas are here to craft your perfect cup. Step inside, take a seat, and let the aroma of freshly ground coffee beans wrap you in a comforting embrace.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax-container" style="margin: 45px;">
+        <div class="parallax"><img src="par.jpg"></div>
+    </div>
+
+    <div class="container" style="background-color: #6b4d4d77;">
+        <h3>Menu</h3>
+        <p>
+            For hot beverages they are always served in a cup. Meanwhile, for cold beverages they are also served in a plastic cup with ice.
+        </p>
+        <br>
+        
+        <h3>Hot Beverages</h3>
+        <table class="striped">
+            <thead>
+                <tr style="color: white;">
+                    <th>Coffee Name</th>
+                    <th>Small</th>
+                    <th>Medium</th>
+                    <th>Large</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+        
+            <tbody>
+                <tr style="color: white;">
+                    <td>Brewed Coffee</td>
+                    <td>₱45.00</td>
+                    <td>₱90.00</td>
+                    <td>₱135.00</td>
+                    <td><button class="add-to-cart" data-name="Brewed Coffee">Add</button></td>
+                    <ul id="selected-items"></ul>
+                </tr>
+                </tr>
+                <tr style="color: white;">
+                    <td>Macchiato</td>
+                    <td>₱45.00</td>
+                    <td>₱90.00</td>
+                    <td>₱135.00</td>
+                    <td><button class="add-to-cart" data-name="Macchiato">Add</button></td>
+                    <ul id="selected-items"></ul>
+                </tr>
+                </tr>
+                <tr style="color: white;">
+                    <td>Classic Americano</td>
+                    <td>₱50.00</td>
+                    <td>₱100.00</td>
+                    <td>₱150.00</td>
+                    <td><button class="add-to-cart" data-name="Classic Americano">Add</button></td>
+                    <ul id="selected-items"></ul>
+                </tr>
+                </tr>
+                <tr style="color: white;">
+                    <td>Cappuccino</td>
+                    <td>₱50.00</td>
+                    <td>₱100.00</td>
+                    <td>₱150.00</td>
+                    <td><button class="add-to-cart" data-name="Cappuccino">Add</button></td>
+                    <ul id="selected-items"></ul>
+                </tr>
+                </tr>
+                <tr style="color: white;">
+                    <td>Espresso</td>
+                    <td>₱50.00</td>
+                    <td>₱100.00</td>
+                    <td>₱150.00</td>
+                    <td><button class="add-to-cart" data-name="Espresso">Add</button></td>
+                    <ul id="selected-items"></ul>
+                </tr>
+                </tr>
+                <tr style="color: white;">
+                    <td>Latte</td>
+                    <td>₱55.00</td>
+                    <td>₱110.00</td>
+                    <td>₱165.00</td>
+                    <td><button class="add-to-cart" data-name="Latte">Add</button></td>
+                    <ul id="selected-items"></ul>
+                </tr>
+                </tr>
+                <tr style="color: white;">
+                    <td>Mocha</td>
+                    <td>₱60.00</td>
+                    <td>₱120.00</td>
+                    <td>₱180.00</td>
+                    <td><button class="add-to-cart" data-name="Mocha">Add</button></td>
+                    <ul id="selected-items"></ul>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+    
+        <h3>Cold Beverages</h3>
+        <table class="striped">
+                <thead>
+                <tr style="color: white;">
+                    <th>Coffee Name</th>
+                    <th>Small</th>
+                    <th>Medium</th>
+                    <th>Large</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+        
+            <tbody>
+                <tr style="color: white;">
+                    <td>Macchiato</td>
+                    <td>₱50.00</td>
+                    <td>₱95.00</td>
+                    <td>₱140.00</td>
+                    <td><button class="add-to-cart" data-name="Macchiato">Add</button></td>
+                    <ul id="selected-items"></ul>
+                </tr>
+                </tr>
+                <tr style="color: white;">
+                    <td>Classic Americano</td>
+                    <td>₱55.00</td>
+                    <td>₱105.00</td>
+                    <td>₱155.00</td>
+                    <td><button class="add-to-cart" data-name="Classic Americano">Add</button></td>
+                    <ul id="selected-items"></ul>
+                </tr>
+                </tr>
+                <tr style="color: white;">
+                    <td>Cappuccino</td>
+                    <td>₱55.00</td>
+                    <td>₱105.00</td>
+                    <td>₱155.00</td>
+                    <td><button class="add-to-cart" data-name="Cappuccino">Add</button></td>
+                    <ul id="selected-items"></ul>
+                </tr>
+                </tr>
+                <tr style="color: white;">
+                    <td>Espresso</td>
+                    <td>₱55.00</td>
+                    <td>₱105.00</td>
+                    <td>₱155.00</td>
+                    <td><button class="add-to-cart" data-name="Espresso">Add</button></td>
+                    <ul id="selected-items"></ul>
+                </tr>
+                </tr>
+                <tr style="color: white;">
+                    <td>Latte</td>
+                    <td>₱60.00</td>
+                    <td>₱115.00</td>
+                    <td>₱170.00</td>
+                    <td><button class="add-to-cart" data-name="Latte">Add</button></td>
+                    <ul id="selected-items"></ul>
+                </tr>
+                </tr>
+                <tr style="color: white;">
+                    <td>Mocha</td>
+                    <td>₱65.00</td>
+                    <td>₱125.00</td>
+                    <td>₱185.00</td>
+                    <td><button class="add-to-cart" data-name="Mocha">Add</button></td>
+                    <ul id="selected-items"></ul>
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="show-items.html" class="button">
+            <span class="button__text">Show Item</span>
+            <span class="button__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg">
+                <line y2="19" y1="5" x2="12" x1="12"></line>
+                <line y2="12" y1="12" x2="19" x1="5"></line>
+              </svg>
+            </span>
+          </a>
+        <br>
+    </div>
+    
+    <div class="parallax-container" style="margin: 45px;">
+        <div class="parallax"><img src="Coffee Shop 2.jpg"></div>
+    </div>
+</div>
+    <br>
+   
+    <div class="container">
+        <!--Slider-->
+        <h3>The Best In our Coffee?</h3>
+        <p>Welcome to our coffee menu, where each selection is a journey of flavor and aroma. Our commitment to quality and craftsmanship is reflected in every cup, using only the finest beans sourced from renowned coffee-growing regions around the world. Whether you're a connoisseur seeking the perfect espresso or a casual drinker looking for a comforting latte, our diverse menu has something to delight every palate. Explore our offerings and discover your new favorite brew. Enjoy!</p>
+        <div class="slider">
+            <ul class="slides">
+                <li>
+                    <img src="Americano.jpg" alt="">
+                    <div class="caption left-align">
+                        <h3>Classic Americano</h3>
+                        <h5>Discover the rich and bold flavor of our Americano coffee, a classic choice for those who appreciate the simplicity and depth of a well-crafted espresso. An Americano is made by combining a shot of espresso with hot water, creating a smooth, balanced beverage that highlights the intricate notes of the coffee beans. Sip and savor the essence of pure coffee bliss.</h5>
+                    </div>
+                </li>
+                <li>
+                    <img src="Brewed Coffee.jpeg" alt="">
+                    <div class="caption right-align">
+                        <h3>Brewed Coffee</h3>
+                        <h5>Experience the timeless pleasure of our brewed coffee, a staple for coffee lovers seeking a comforting and familiar cup. Our brewed coffee is meticulously prepared using high-quality beans sourced from the finest coffee-growing regions around the world. Each batch is carefully roasted to bring out the unique flavors and aromas, ensuring a rich and satisfying experience in every sip. Enjoy the simplicity and depth of a perfectly brewed cup.</h5>
+                    </div>
+                </li>
+                <li>
+                    <img src="Cappuccino.jpg" alt="">
+                    <div class="caption left-align">
+                        <h3>Cappuccino</h3>
+                        <h5>Indulge in the rich and velvety delight of our cappuccino, a classic favorite that perfectly balances bold espresso with creamy milk. Our cappuccino has a robust shot of espresso, then complemented by a layer of steamed milk, adding a smooth and creamy texture, and topped with a generous dollop of frothy milk foam. The result is a harmonious blend of flavors and textures, offering a satisfying coffee experience with each sip. Enjoy this timeless Italian favorite, crafted to perfection.</h5>
+                    </div>
+                </li>
+                <li>
+                    <img src="Espresso.jpg" alt="">
+                    <div class="caption right-align">
+                        <h3>Espresso</h3>
+                        <h5>Our espresso is crafted with precision and passion, using the finest coffee beans sourced from top coffee-growing regions around the globe. Each shot is carefully brewed under high pressure to extract the rich, concentrated flavors and aromas that define this classic coffee. The result is a small but mighty cup, with a robust and full-bodied taste, topped with a layer of golden crema.  Savor the bold, invigorating essence of pure espresso, and let its powerful flavors awaken your senses.</h5>
+                    </div>
+                </li>
+                <li>
+                    <img src="Latte.jpg" alt="">
+                    <div class="caption left-align">
+                        <h3>Latte</h3>
+                        <h5>Discover the smooth and creamy delight of our latte, a beloved coffee classic that perfectly blends robust espresso with rich, steamed milk. Topped with a light layer of frothy milk, each sip offers a luscious and satisfying experience. Whether you prefer it plain or flavored with a hint of vanilla, caramel, or hazelnut, our latte is the perfect choice for a soothing coffee break or a cozy morning ritual. Enjoy the perfect fusion of espresso and milk in every cup.</h5>
+                    </div>
+                </li>
+                <li>
+                    <img src="Mocha.jpg" alt="">
+                    <div class="caption right-align">
+                        <h3>Mocha</h3>
+                        <h5>Indulge in the luxurious blend of coffee and chocolate with our mocha, a delightful treat that combines the best of both worlds. Topped with a light layer of froth and a drizzle of chocolate syrup, each sip delivers a creamy, chocolaty delight that's perfect for satisfying your sweet tooth and coffee cravings. Whether you're in need of a cozy pick-me-up or a deliciously indulgent treat, our mocha is the perfect choice. Enjoy the perfect fusion of coffee and chocolate in every cup.</h5>
+                    </div>
+                </li>
+                <li>
+                    <img src="Macchiato.jpg" alt="">
+                    <div class="caption left-align">
+                        <h3>Macchiato</h3>
+                        <h5>Experience the perfect balance of bold espresso and delicate milk with our macchiato, a classic coffee indulgence that embodies simplicity and depth. Topped with a touch of frothy milk foam, our macchiato offers a nuanced and satisfying coffee experience, perfect for those who appreciate the purity of espresso with a hint of creamy smoothness. Our macchiato promises to elevate your coffee enjoyment to new heights.</h5>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+<br><br><br>
+
+<div class="divider"></div>
+<h1 class="center">Creator</h1>
+<div class="container">
+    <div class="image-container">
+        <div class="image-wrapper">
+            <h3>Anday, Marco James</h3>
+            <img class="materialboxed" width="650" src="Anday.jpg" alt="Gelera, Esmael Jr. M.">
+        </div>
+        <div class="image-wrapper">
+            <h3>Gelera, Esmael Jr. M.</h3>
+            <img class="materialboxed" width="650" src="Gelera.jpeg" alt="Another Name 1">
+        </div>
+        <div class="image-wrapper">
+            <h3>Gutierrez, Mark Eugene</h3>
+            <img class="materialboxed" width="650" src="Gutierrez.jpg" alt="Another Name 2">
+        </div>
+        <div class="image-wrapper">
+            <h3>Matoseño, Kurt</h3>
+            <img class="materialboxed" width="650" src="Matoseño.jpg" alt="Another Name 3">
+        </div>
+    </div>
+
+    <div style="height: 100px;"></div>
+
+ <!--Jquery CDN-->
+ <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+ <!-- Compiled and minified JavaScript -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+ <script>
+    $(document).ready(function(){
+        // Initialize dropdown
+        $('.dropdown-trigger').dropdown();
+        // Initialize sidenav
+        $('.sidenav').sidenav();
+        // Initialize parallax
+        $('.parallax').parallax();
+        // Initialize slider
+        $('.slider').slider();
+
+      
+        $('.add-to-cart').click(function() {
+        var itemName = $(this).data('name'); 
+        var items = JSON.parse(localStorage.getItem('selectedItems')) || []; 
+
+        items.push(itemName); // Add item to array
+        localStorage.setItem('selectedItems', JSON.stringify(items)); 
+
+        
+        M.toast({ html: `${itemName} added to cart` }); 
+    });
+});
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.materialboxed');
+        var instances = M.Materialbox.init(elems);
+    });
+</script>
+
+<div id="toast-container" class="toast-container"></div>
+
+</body>
+</html>

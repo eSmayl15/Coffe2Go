@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selected Items</title>
+    <link rel="icon" type="image/png" href="Logo 2.png">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- custom font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url(bg2.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        h1 {
+            font-weight: 1000;
+        }
+        p {
+            text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+            color: #fffefe;
+            font-size: 24px;
+            text-align: justify;
+            margin: 10px;
+        }
+        .parallax {
+            height: 450px;
+        }
+        h3 {
+            color: #7a7642;
+            font-size: 60px;
+            font-weight: bold;
+        }
+        .button {
+            position: relative;
+            width: 150px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border: 1px solid #34974d;
+            background-color: #3aa856;
+        }
+        .button, .button__icon, .button__text {
+            transition: all 0.3s;
+        }
+        .button .button__text {
+            transform: translateX(30px);
+            color: #fff;
+            font-weight: 600;
+        }
+        .button .button__icon {
+            position: absolute;
+            transform: translateX(109px);
+            height: 100%;
+            width: 39px;
+            background-color: #34974d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .button .svg {
+            width: 30px;
+            stroke: #fff;
+        }
+        .button:hover {
+            background: #34974d;
+        }
+        .button:hover .button__text {
+            color: transparent;
+        }
+        .button:hover .button__icon {
+            width: 148px;
+            transform: translateX(0);
+        }
+        .button:active .button__icon {
+            background-color: #2e8644;
+        }
+        .button:active {
+            border: 1px solid #2e8644;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav class="brown darken-2" style="height: 70px;">
+            <div class="nav-wrapper">
+                <a href="Coffee2Go.html" class="brand-logo" style="margin: 5px;">
+                    <img src="Logo 2.png" alt="" class="responsive-img circle" width="55" height="55">
+                </a>
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="Coffee2Go.html">Home</a></li>
+                    <li><a href="#">Coffees</a></li>
+                    <li><a href="#">Pastries</a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">More<i class="material-icons right">arrow_drop_down</i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="history.html" class="black-text">History</a></li>
+        <li><a href="about.html" class="black-text">About Us</a></li>
+        <li><a href="https://www.facebook.com/coffee2go.2024?mibextid=ZbWKwL" class="black-text" target="_blank">Message Us</a></li>
+    </ul>
+
+    <br>
+    <h1 class="center" style="color: #A59F6D;">Coffee2Go</h1>
+    <div class="divider"></div>
+
+    <div class="container" style="background-color: #6b4d4d77;">
+        <h3>Selected Items</h3>
+        <table class="striped">
+            <thead>
+                <tr style="color: white;">
+                    <th>Item</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="selected-items"></tbody>
+        </table>
+    </div>
+
+    <br>
+    <div style="height: 1000px;"></div>
+
+    <!--Jquery CDN-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+       $(document).ready(function() {
+    // Initialize dropdown, sidenav, parallax, slider, etc. (already implemented)
+
+    // Retrieve selected items from localStorage
+    var selectedItems = JSON.parse(localStorage.getItem('selectedItems')) || [];
+
+    // Display selected items in the table
+    var selectedItemsTable = $('#selected-items');
+    renderSelectedItems(selectedItems);
+
+    // Function to render selected items
+    function renderSelectedItems(items) {
+        selectedItemsTable.empty(); // Clear existing table rows
+        items.forEach(function(item) {
+            var row = `<tr>
+                <td>${item}</td>
+                <td></td>
+                <td><button class="remove-item btn red" data-name="${item}">Remove</button></td>
+            </tr>`;
+            selectedItemsTable.append(row);
+        });
+    }
+
+    // Handle click on remove item button
+    $(document).on('click', '.remove-item', function() {
+        var itemName = $(this).data('name');
+
+        // Remove item from selectedItems array
+        selectedItems = selectedItems.filter(function(item) {
+            return item !== itemName;
+        });
+
+        // Update localStorage with updated selectedItems array
+        localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
+
+        // Re-render the selected items table
+        renderSelectedItems(selectedItems);
+    });
+});
+
+    </script>
+
+</body>
+</html>
