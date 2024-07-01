@@ -471,11 +471,18 @@ h5 {
     $(document).ready(function(){
         // Initialize dropdown
         $('.dropdown-trigger').dropdown();
+        // Sidenav Init
+        $('.sidenav').sidenav({
+            edge: 'left',
+            inDuration: 1000,
+            outDuration: 1000
+        });
+        
         // Initialize parallax
         $('.parallax').parallax();
         // Initialize slider
         $('.slider').slider();
-
+        
       
         $('.add-to-cart').click(function() {
         var itemName = $(this).data('name'); 
@@ -488,11 +495,6 @@ h5 {
         M.toast({ html: `${itemName} added to cart` }); 
     });
 });
-</script>
-    <script>
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
 </script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
