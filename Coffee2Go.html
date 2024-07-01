@@ -147,19 +147,25 @@ h5 {
                 <img src="Logo 2.png" alt="" class="responsive-img circle" width="55" height="55">
             </a>
 
-            <!-- Sidenav Structure -->
-            <ul id="slide-out" class="sidenav">
-                <li><a href="Coffee2Go.html">Home</a></li>
-                <li><a href="https://www.google.com/search?q=coffee" target="_blank">Coffees</a></li>
-                <li><a href="https://www.google.com/search?q=pastries" target="_blank">Pastries</a></li>
-                <li><a href="history.html">History</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="https://www.facebook.com/coffee2go.2024?mibextid=ZbWKwL" target="_blank">Message Us</a></li>
-            </ul>
-                        <!-- Sidenav Trigger -->
-            <a href="#" data-target="slide-out" class="sidenav-trigger">
-                <i class="material-icons">menu</i>
-            </a>
+         <!-- Sidenav Structure -->
+<ul id="slide-out" class="sidenav">
+    <li><a href="Coffee2Go.html">Home</a></li>
+    <li><a href="https://www.google.com/search?q=coffee" target="_blank">Coffees</a></li>
+    <li><a href="https://www.google.com/search?q=pastries" target="_blank">Pastries</a></li>
+    <li><a href="history.html">History</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="https://www.facebook.com/coffee2go.2024?mibextid=ZbWKwL" target="_blank">Message Us</a></li>
+    <li><a href="#" id="show-selected-items">Show Selected Items</a></li>
+    <li>
+        <ul id="selected-items" class="collection"></ul>
+    </li>
+</ul>
+
+<!-- Sidenav Trigger -->
+<a href="#" data-target="slide-out" class="sidenav-trigger">
+    <i class="material-icons">menu</i>
+</a>
+
             <ul class="right hide-on-med-and-down">
                 <li><a href="Coffee2Go.html">Home</a></li>
                 <li><a href="https://www.google.com/search?q=coffee&sca_esv=837579d7492c079f&biw=1163&bih=539&tbm=shop&sxsrf=ADLYWIL71TJPMouPWvHNJNdpMtthFgGZGg%3A1719775329592&ei=YbCBZr_DI8vT1e8Pq5qg-A4&ved=0ahUKEwj_9_OshoSHAxXLafUHHSsNCO8Q4dUDCAg&uact=5&oq=coffee&gs_lp=Egtwcm9kdWN0cy1jYyIGY29mZmVlMgQQIxgnMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAESMUEUHZYdnAAeACQAQCYAX6gAfYBqgEDMC4yuAEDyAEA-AEBmAIBoAJ-mAMAiAYBkgcDMC4xoAfbCw&sclient=products-cc" target="_blank">Coffees</a></li>
@@ -472,12 +478,6 @@ h5 {
     $(document).ready(function(){
         // Initialize dropdown
         $('.dropdown-trigger').dropdown();
-        // Sidenav Init
-        $('.sidenav').sidenav({
-            edge: 'left',
-            inDuration: 1000,
-            outDuration: 1000
-        });
         
         // Initialize parallax
         $('.parallax').parallax();
@@ -496,6 +496,30 @@ h5 {
         M.toast({ html: `${itemName} added to cart` }); 
     });
 });
+</script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    const selectedItemsList = document.getElementById('selected-items');
+    const showSelectedItemsLink = document.getElementById('show-selected-items');
+
+    // Event listener for Add buttons
+    addToCartButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const itemName = this.getAttribute('data-name');
+        const listItem = document.createElement('li');
+        listItem.className = 'collection-item';
+        listItem.textContent = itemName;
+        selectedItemsList.appendChild(listItem);
+      });
+    });
+
+    // Event listener to show selected items
+    showSelectedItemsLink.addEventListener('click', function() {
+      const sidenavInstance = M.Sidenav.getInstance(document.querySelector('.sidenav'));
+      sidenavInstance.open();
+    });
+  });
 </script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
