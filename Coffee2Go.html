@@ -490,13 +490,14 @@ h5 {
 });
 </script>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var elemsSidenav = document.querySelectorAll('.sidenav');
-        var instancesSidenav = M.Sidenav.init(elemsSidenav);
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
 
-        var elemsDropdown = document.querySelectorAll('.dropdown-trigger');
-        var instancesDropdown = M.Dropdown.init(elemsDropdown);
-    });
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
 </script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
