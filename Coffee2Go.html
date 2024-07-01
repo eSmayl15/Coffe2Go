@@ -478,7 +478,12 @@ h5 {
     $(document).ready(function(){
         // Initialize dropdown
         $('.dropdown-trigger').dropdown();
-        
+        // slidenav init
+       $('.sidenav').sidenav({
+            edge: 'left',
+            inDuration: 500,
+            outDuration: 500
+        });
         // Initialize parallax
         $('.parallax').parallax();
         // Initialize slider
@@ -496,30 +501,6 @@ h5 {
         M.toast({ html: `${itemName} added to cart` }); 
     });
 });
-</script>
-    <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    const selectedItemsList = document.getElementById('selected-items');
-    const showSelectedItemsLink = document.getElementById('show-selected-items');
-
-    // Event listener for Add buttons
-    addToCartButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const itemName = this.getAttribute('data-name');
-        const listItem = document.createElement('li');
-        listItem.className = 'collection-item';
-        listItem.textContent = itemName;
-        selectedItemsList.appendChild(listItem);
-      });
-    });
-
-    // Event listener to show selected items
-    showSelectedItemsLink.addEventListener('click', function() {
-      const sidenavInstance = M.Sidenav.getInstance(document.querySelector('.sidenav'));
-      sidenavInstance.open();
-    });
-  });
 </script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
